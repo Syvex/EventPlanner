@@ -14,19 +14,19 @@ const EventDisplay = () => {
     return (
         <div className="event">
             {
-                displayDetails &&              
-
-                (<div className="eventDisplayWrapper">
-                    <p>{eventContext.event.moreInfo}</p>
-                    <button onClick={toggleEventDetails}>go back</button>
-                </div>) ||           
-
-                (<div className="eventDisplayWrapper">
-                    <span>{eventContext.event.when}</span>
-                    <span>{eventContext.event.what}</span>
-                    <span>{eventContext.event.attendance}</span>
-                    <button onClick={toggleEventDetails} className="moreInfo">more Info</button>
-                </div>)
+                displayDetails && (
+                    <div className="event-display-wrapper">
+                        <p>{eventContext.event.moreInfo}</p>
+                        <button onClick={toggleEventDetails}>go back</button>
+                    </div>
+                ) || (
+                    <div className="event-display-wrapper">
+                        <span>{eventContext.event.when}</span>
+                        <span>{eventContext.event.what}</span>
+                        <span>{eventContext.event.attendance}</span>
+                        <button onClick={toggleEventDetails} className="moreInfo">more Info</button>
+                    </div>
+                )
                 /* 
                 and before or... short evaluation
                 default: 0 and 1 or 1 === 0 or 1 => basic details displayed 
