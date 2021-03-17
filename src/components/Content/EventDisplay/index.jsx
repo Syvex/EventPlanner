@@ -11,19 +11,24 @@ const EventDisplay = () => {
         setDisplayDetails(!displayDetails);
     }
 
+    const newEventMoreInfo = eventContext.event.moreInfo;
+    const newEventWhen = eventContext.event.when;
+    const newEventWhat = eventContext.event.what;
+    const newEventAttendance = eventContext.event.attendance;
+
     return (
         <div className="event">
             {
                 displayDetails && (
                     <div className="event-display-wrapper">
-                        <p>{eventContext.event.moreInfo}</p>
+                        <p>{newEventMoreInfo}</p>
                         <button onClick={toggleEventDetails}>go back</button>
                     </div>
                 ) || (
                     <div className="event-display-wrapper">
-                        <span>{eventContext.event.when}</span>
-                        <span>{eventContext.event.what}</span>
-                        <span>{eventContext.event.attendance}</span>
+                        <span>{newEventWhen}</span>
+                        <span>{newEventWhat}</span>
+                        <span>{newEventAttendance}</span>
                         <button onClick={toggleEventDetails} className="moreInfo">more Info</button>
                     </div>
                 )
