@@ -18,6 +18,7 @@ const CreateEvent = () => {
             </Button>
             <CreateEventModal 
                 displayModal={displayModal}
+                onToggleModal={onToggleModal}
             />
         </div>
     )

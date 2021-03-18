@@ -20,7 +20,10 @@ const EventDisplay = ({when, what, attendance, moreInfo}) => {
                     <div className="event-display-wrapper">
                         <span>{when}</span>
                         <span>{what}</span>
-                        <span>{attendance}</span>
+                        <div>
+                            <input type="checkbox" id="attendance" name="attendance" />
+                            <label>Attending</label>
+                        </div>
                         <button onClick={toggleEventDetails} className="moreInfo">more Info</button>
                     </div>
                 )
