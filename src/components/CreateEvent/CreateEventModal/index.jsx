@@ -1,23 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './index.css';
-import {EventContext} from '../../../providers/EventProvider/index.jsx';
-import EventDisplay from '../../Content/EventDisplay/index.jsx';
+import {EventContext} from '../../../providers/EventProvider';
 
 const CreateEventModal = (props) => {
-    const eventContext = useContext(EventContext);
+    const {addEvent} = useContext(EventContext);
+
+    const [when, setWhen] = useState();
+
 
     //on submit create and render a new eventdisplay with the userinputs
-    const handleSubmit = () => {
-        return (
-            <EventDisplay />
-        )
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addEvent({when});
     }
 
     return (
         <div>
             {props.displayModal && (
                 <form className="modal" onSubmit={handleSubmit}>
-                    <input type="text" onChange={eventContext.setEvent.when} />
+                    <input name="when" required type="text" onChange={(e => setWhen(e.target.value))} />
                     <input type="submit" value="Submit" />
                 </form>
             )}

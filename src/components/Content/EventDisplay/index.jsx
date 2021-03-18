@@ -1,34 +1,26 @@
 import React, { useContext, useState } from 'react';
 import './index.css';
-import {EventContext} from '../../../providers/EventProvider/index.jsx';
 
-const EventDisplay = () => {
-    const eventContext = useContext(EventContext);
-
+const EventDisplay = ({when, what, attendance, moreInfo}) => {
     const [displayDetails, setDisplayDetails] = useState(false);
 
     const toggleEventDetails = () => {
         setDisplayDetails(!displayDetails);
     }
 
-    const newEventMoreInfo = eventContext.event.moreInfo;
-    const newEventWhen = eventContext.event.when;
-    const newEventWhat = eventContext.event.what;
-    const newEventAttendance = eventContext.event.attendance;
-
     return (
         <div className="event">
             {
                 displayDetails && (
                     <div className="event-display-wrapper">
-                        <p>{newEventMoreInfo}</p>
+                        <p>{moreInfo}</p>
                         <button onClick={toggleEventDetails}>go back</button>
                     </div>
                 ) || (
                     <div className="event-display-wrapper">
-                        <span>{newEventWhen}</span>
-                        <span>{newEventWhat}</span>
-                        <span>{newEventAttendance}</span>
+                        <span>{when}</span>
+                        <span>{what}</span>
+                        <span>{attendance}</span>
                         <button onClick={toggleEventDetails} className="moreInfo">more Info</button>
                     </div>
                 )

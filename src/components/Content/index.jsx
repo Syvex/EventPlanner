@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './index.css';
 import EventDisplay from './EventDisplay/index';
+import {EventContext} from '../../providers/EventProvider';
 
 const Content = () => {
+    const {events} = useContext(EventContext);
 
     return (
         <section className="content">
-            <EventDisplay />
+            {events.map(({id, ...rest}) => (
+                <EventDisplay key={id} {...rest} />
+            ))}
         </section>
     )
 }

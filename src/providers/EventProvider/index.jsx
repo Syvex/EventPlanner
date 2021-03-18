@@ -1,20 +1,19 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useCallback} from 'react';
 
 export const EventContext = createContext({});
 
 const EventProvider = ({children}) => {
 
-    const [event, setEvent] = useState({
-        when: 'date',
-        what: 'activity',
-        attendance: 'attending?',
-        moreInfo: 'details',
+    const [events, setEvents] = useState([]);
+
+    const addEvent = useCallback((newEvent) => {
+        setEvents([...events, {id: Date.now(), ...newEvent}]);
     });
 
     return (
         <EventContext.Provider value={{
-            event,
-            setEvent,
+            events,
+            addEvent,
         }}>
             {children}
         </EventContext.Provider>
