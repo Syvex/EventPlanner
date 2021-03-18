@@ -3,16 +3,17 @@ import './index.css';
 import {EventContext} from '../../../providers/EventProvider';
 
 const CreateEventModal = (props) => {
+    //addEvent is being grabbed directly out of the EventContext through object destructuring
     const {addEvent} = useContext(EventContext);
 
+    //each event attribute gets it's own state
     const [when, setWhen] = useState();
     const [what, setWhat] = useState();
     const [moreInfo, setMoreInfo] = useState();
 
-
     //on submit create and render a new eventdisplay with the userinputs
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); //prevents the page from refreshing upon submit
         props.onToggleModal();
         addEvent({when, what, moreInfo});
     }

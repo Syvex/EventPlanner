@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
-const EventDisplay = ({when, what, attendance, moreInfo}) => {
+//the eventdisplay takes in the eventattributes as props
+const EventDisplay = ({when, what, moreInfo}) => {
     const [displayDetails, setDisplayDetails] = useState(false);
 
     const toggleEventDetails = () => {

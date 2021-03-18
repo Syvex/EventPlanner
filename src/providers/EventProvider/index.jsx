@@ -6,7 +6,12 @@ const EventProvider = ({children}) => {
 
     const [events, setEvents] = useState([]);
 
+    /*
+    useCallback used to remember the function so it doesnt have to re-render it
+    every time this context is used
+    */
     const addEvent = useCallback((newEvent) => {
+        //copies all existing events and adds a new event with a "unique" id
         setEvents([...events, {id: Date.now(), ...newEvent}]);
     });
 
