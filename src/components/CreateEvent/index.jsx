@@ -12,7 +12,7 @@ const CreateEvent = () => {
     }
 
     return (
-        <div className="eventCreatorWrapper">
+        <div className="event-creator-wrapper">
             <Button onClick={onToggleModal}>
                 Create an Event!
             </Button>
